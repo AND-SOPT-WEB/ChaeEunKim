@@ -1,0 +1,182 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    background-color: black;
+}
+
+header {    
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    color: white;
+    text-shadow: -1px 0px black, 0px 1px black, 1px 0px black, 0px -1px black;
+    background-color: transparent;
+    z-index: 5;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.logo {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.menu {
+    font-size: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.right {
+    justify-content: flex-end;
+}
+
+.icon {
+    display: flex;
+    gap: 15px;
+}
+
+.icon img {
+    height: 30px;
+    filter: drop-shadow(5px 5px 5px #000); 
+}
+
+.main {
+    position: relative;
+}
+
+.sub {
+    position: absolute;
+    top: 750px;
+    left: 1500px;
+    display: flex;
+    /* justify-content: flex-end; */
+    flex-direction: column;
+    align-items: end;
+    gap: 10px;
+}
+
+.background {
+    /* background-size: contain; */
+    width: 100%;
+    top: -80px;
+    z-index: -5;
+}
+
+.wave {
+    display: flex;
+    color: rgb(0, 145, 255);
+    background-color: white;
+    z-index: 5;
+    padding: 20px;
+    text-align: right;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+.site {
+    display: flex;
+    z-index: 5;
+    padding: 10px 20px;
+    color: white;
+    background-color: rgba(85, 85, 85, 0.8);
+    border-radius: 10px;
+    width: 110px;
+    text-align: center;
+}
+
+.flow {
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.flow_banner {
+    position: relative;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    padding-top: 70px;
+}
+
+.flow_banner ul li img {
+    width: 250px;
+    height: 280px;
+    object-fit: cover;
+}
+
+.flow_banner span {
+    position: absolute;
+    top: 0;
+    padding-top: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+.flow_banner ul {
+    display: flex;
+    width: 100%;
+    animation: roll 10s linear infinite;
+    gap: 30px;
+}
+
+.b2 {
+    margin-left: 30px;
+}
+
+@keyframes roll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+.scroll {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.scroll_banner {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    gap: 20px;
+}
+
+.scroll_banner span {
+    padding-top: 20px;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.scroll_banner ul {
+    display: flex;
+    width: 100%;
+    gap: 30px;
+    overflow-x: scroll;
+    padding-bottom: 20px;
+}
+
+.scroll_banner ul li img {
+    border-radius: 10px;
+    width: 250px;
+    height: 280px;
+    object-fit: cover;
+}
