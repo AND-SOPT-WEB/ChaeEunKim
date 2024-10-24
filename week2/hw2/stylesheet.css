@@ -4,11 +4,12 @@
 
 body {
     margin: 0;
+    background-color: rgb(233, 238, 217);
 }
 
 header {
     width: 100%;
-    background-color: rgb(246, 252, 223);
+    background-color: rgb(203, 210, 164);
     padding: 20px;
 }
 
@@ -30,4 +31,120 @@ header {
 
 .profile {
     text-align: right;
+}
+
+main {
+    padding-top: 20px;
+    display: grid;
+    grid-template-areas: 
+        ". filter ."
+        ". table .";
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+form {
+    height: 300px;
+    width: 1000px;
+    display: grid;
+    grid-template-areas: 
+        "label_name name name name name name"
+        "label_eng eng_name eng_name eng_name eng_name eng_name"
+        "label_git git_id label_gender gender label_role role"
+        "label_week1 week1 week1 label_week2 week2 week2"
+        ". . . . . ."
+        "btn_rs btn_rs btn_rs btn_sm btn_sm btn_sm";
+    gap: 7px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 2fr 2fr 2fr 2fr 0.5fr 2fr;
+}
+
+form > label {
+    background-color: rgb(233, 238, 217);
+}
+
+label {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input,
+select {
+    border-width: 0;
+    padding-left: 10px;
+}
+
+.labl_name {
+    grid-area: label_name;
+}
+.name {
+    grid-area: name;
+}
+
+.labl_eng {
+    grid-area: label_eng;
+}
+.eng_name {
+    grid-area: eng_name;
+}
+
+.labl_git {
+    grid-area: label_git;
+}
+.git_id {
+    grid-area: git_id;
+}
+
+.label_gender {
+    grid-area: label_gender;
+}
+.gender {
+    grid-area: gender;
+}
+
+.labl_role {
+    grid-area: label_role;
+}
+.role {
+    grid-area: role;
+}
+
+.labl_week1 {
+    grid-area: label_name;
+}
+.week1 {
+    grid-area: week1;
+}
+
+.labl_week2 {
+    grid-area: label_name;
+}
+.week2 {
+    grid-area: week2;
+}
+
+.reset {
+    grid-area: btn_rs;
+    background-color: rgb(154, 126, 111);
+    color: white;
+    font-size: 15px;
+}
+
+.submit {
+    grid-area: btn_sm;
+    background-color: rgb(84, 71, 63);
+    color: white;
+    font-size: 15px;
+}
+
+main form {
+    grid-area: filter;
+    background-color: rgb(203, 210, 164);
+    padding: 13px;
+}
+
+button {
+    border-width: 0;
+    border-radius: 5px;
 }
