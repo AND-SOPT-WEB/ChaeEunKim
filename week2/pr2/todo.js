@@ -3,6 +3,7 @@ const btn = document.querySelector(".add");
 const input_tag = document.querySelector("input");
 
 
+amrr
 const buttonClick = () => {
     const li = document.createElement('li');
     li.textContent = document.querySelector("input").value;

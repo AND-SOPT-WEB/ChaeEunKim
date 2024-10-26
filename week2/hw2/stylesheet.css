@@ -38,6 +38,7 @@ main {
     display: grid;
     grid-template-areas: 
         ". filter ."
+        ". btn ."
         ". table .";
     grid-template-columns: 1fr 1fr 1fr;
 }
@@ -46,6 +47,7 @@ form {
     height: 300px;
     width: 1000px;
     display: grid;
+    grid-area: filter;
     grid-template-areas: 
         "label_name name name name name name"
         "label_eng eng_name eng_name eng_name eng_name eng_name"
@@ -147,4 +149,53 @@ main form {
 button {
     border-width: 0;
     border-radius: 5px;
+}
+
+#members {
+    grid-area: table;
+    background-color: (154, 126, 111);}
+
+.btns {
+    grid-area: btn;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 50px;
+    column-gap: 10px;
+}
+
+.btn {
+    padding: 10px 0px;
+    width: 130px;
+}
+
+.delete {
+    background-color:  rgb(154, 126, 111);
+    color: white;
+    font-size: 15px;
+}
+
+.add {
+    background-color: rgb(84, 71, 63);
+    color: white;
+    font-size: 15px;
+}
+
+tr {
+    background-color: rgb(154, 126, 111);
+    color: white;
+    /* padding: 20px 0; */
+}
+
+th {
+    padding: 15px 0;
+}
+
+/* table, tr, th{
+    border-color: rgb(194, 154, 133);
+    border-collapse: collapse;
+    border-style: ;
+} */
+
+#members {
+    border-color: rgb(194, 154, 133);
 }

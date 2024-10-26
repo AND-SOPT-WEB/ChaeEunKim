@@ -6,6 +6,7 @@
     <title>회원관리</title>
     <script src="https://kit.fontawesome.com/1a262862d7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="stylesheet.css"/>
+
 </head>
 <body>
     <header>
@@ -50,6 +51,30 @@
             <button type="reset" class="reset">초기화</button>
             <button type="submit" class="submit">검색</button>
         </form>
+
+        <div class="btns">
+            <button type="reset" class="delete btn">선택삭제</button>
+            <button type="submit" class ="add btn">추가</button>
+        </div>
+        
+        <table id="members">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" class="check"></th>>
+                    <th>이름</th>
+                    <th>영문이름</th>
+                    <th>GitHub</th>
+                    <th>성별</th>
+                    <th>역할</th>
+                    <th>1주차 금잔디</th>
+                    <th>2주차 금잔디</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
     </main>
+    <script type="module" src="memberSerch.js"></script>
 </body>
 </html>
