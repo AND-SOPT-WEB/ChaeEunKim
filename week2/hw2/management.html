@@ -29,14 +29,14 @@
             <input type="text" class="git_id" placeholder="GitHub ID를 입력하세요">
             
             <label class="label_gender">성별</label>
-            <select name="gender" size="1">
+            <select name="gender" id="gender" size="1">
                 <option value="none" selected>성별 선택</option>
                 <option value="male">남자</option>
                 <option value="female">여자</option>
             </select>
             
             <label class="label_role">역할</label>
-            <select name="role" size="1">
+            <select name="role" id="role" size="1">
                 <option value="none" selected>OB/YB 선택</option>
                 <option value="ob">OB</option>
                 <option value="yb">YB</option>
@@ -48,13 +48,13 @@
             <label class="label_week2">2주차 금잔디조</label>
             <input type="text" class="week2" placeholder="2주차 금잔디조를 입력하세요 (1~9)">
          
-            <button type="reset" class="reset">초기화</button>
-            <button type="submit" class="submit">검색</button>
+            <button type="reset" id="resetBtn" class="reset">초기화</button>
+            <button type="button" id="searchBtn" class="submit">검색</button>
         </form>
 
         <div class="btns">
             <button type="reset" class="delete btn">선택삭제</button>
-            <button type="submit" class ="add btn">추가</button>
+            <button type="button" class ="add btn">추가</button>
         </div>
         
         <table id="members">

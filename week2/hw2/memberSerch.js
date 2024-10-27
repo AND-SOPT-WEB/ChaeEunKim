@@ -6,12 +6,14 @@ if (!localStorage.getItem("membersData")) {
 
 const getData = JSON.parse(localStorage.getItem("membersData"));
 
-const tbody = document.querySelector("#members tbody")
+const tbody = document.querySelector("#members tbody");
+const searchBtn = document.getElementById("searchBtn");
+const resetBtn = document.getElementById("resetBtn");
 
 function addTable(data) {
   // tbody.innerHTML = "";
 
-  data.forEach((member, index) => {
+  data.forEach((member) => {
     const row = document .createElement("tr");
 
     row.innerHTML = `
@@ -29,9 +31,39 @@ function addTable(data) {
   });
 }
 
-addTable(getData)
+searchBtn.addEventListener("click", () => {
+  const searchName = document.querySelector(".name").value;
+  const searchEngName = document.querySelector(".eng_name").value.toLowerCase();
+  const searchGithub = document.querySelector(".git_id").value.toLowerCase();
+  const searchGender = document.querySelector('select#gender').value;
+  const searchRole = document.querySelector('select#role').value;
+  const searchWeek1 = document.querySelector(".week1").value;
+  const searchWeek2 = document.querySelector(".week2").value;
 
-// getData.forEach((한줄)=> {
-//   let {name, englishName, gender, github, id, role, firstWeekGroup, secondWeekGroup} =한줄;
-//   console.log( github, );
-// })
+  const filteredData = getData.filter(member => 
+    member.name.includes(searchName) && 
+    member.englishName.toLowerCase().includes(searchEngName) &&
+    member.github.toLowerCase().includes(searchGithub) &&
+    (searchGender === "none" || member.gender === searchGender) &&
+    (searchRole === "none" || member.role.toLowerCase() === searchRole) &&
+    (searchWeek1 === "" || member.firstWeekGroup == searchWeek1) &&
+    (searchWeek2 === "" || member.secondWeekGroup == searchWeek2)
+  );
+
+  tbody.innerHTML = "";
+  addTable(filteredData);
+});
+
+resetBtn.addEventListener("click", () => {
+  // document.querySelector(".name").value = '';
+  // document.querySelector(".eng_name").value = '';
+  // document.querySelector(".git_id").value = '';
+  // document.querySelector('select#gender').value = '';
+  // document.querySelector('select#role').value = '';
+  // document.querySelector(".week1").value = '';
+  // document.querySelector(".week2").value = '';
+
+  window.location.reload()
+});
+
+addTable(getData)
