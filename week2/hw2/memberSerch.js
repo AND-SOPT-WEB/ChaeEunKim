@@ -9,12 +9,18 @@ const getData = JSON.parse(localStorage.getItem("membersData"));
 const tbody = document.querySelector("#members tbody");
 const searchBtn = document.getElementById("searchBtn");
 const resetBtn = document.getElementById("resetBtn");
+const delBtn = document.querySelector("#delBtn");
+const selectAll = document.querySelector("#selectAll");
+const modal = document.querySelector(".modal");
+const openModalBtn = document.querySelector("#openModalBtn");
+const closeModalBtn = document.querySelector("#closeModalBtn")
+
 
 function addTable(data) {
   // tbody.innerHTML = "";
 
   data.forEach((member) => {
-    const row = document .createElement("tr");
+    const row = document.createElement("tr");
 
     row.innerHTML = `
       <td><input type="checkbox" class="check"></td>
@@ -63,7 +69,34 @@ resetBtn.addEventListener("click", () => {
   // document.querySelector(".week1").value = '';
   // document.querySelector(".week2").value = '';
 
-  window.location.reload()
+  window.location.reload();
 });
 
-addTable(getData)
+delBtn.addEventListener("click", () => {
+  const newData = getData.filter((member, index) => {
+    const checkRow = tbody.rows[index].querySelector(".check");
+    return !checkRow.checked;
+  });
+
+  localStorage.setItem("membersData", JSON.stringify(newData))
+
+  window.location.reload();
+  tbody.innerHTML = "";
+  addTable(newData);
+});
+
+selectAll.addEventListener("change", () => {
+  const isChecked = selectAll.checked;
+
+  const dataCheckbox = tbody.querySelectorAll(".check")
+  dataCheckbox.forEach(checkbox => {
+    checkbox.checked = isChecked;
+  });
+});
+
+openModalBtn.addEventListener("click", () => {
+  modal.style.display = "flex";
+});
+
+
+addTable(getData);

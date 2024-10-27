@@ -207,3 +207,11 @@ th, td {
 td {
     padding: 15px 0;
 }
+
+.modal {
+    position: absolute;
+    display: none;
+    width: 100%;
+    justify-content: center;
+    background-color: rgba(50, 50, 50, 0.4);
+}
