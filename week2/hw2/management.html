@@ -74,16 +74,14 @@
 
             </tbody>
         </table>
+        
     </main>
-    <script type="module" src="memberSerch.js"></script>
+    <dialog id="modal" class="modal">
+        <h2>새 멤버 추가</h2>
+        <i id="closeModalBtn" class="fa-solid fa-xmark"></i>
 
-    <div class="modal">
-        <div class="add">
-            <header>
-                <span>새 멤버 추가</span>
-                <i id="closeModalBtn" class="fa-solid fa-xmark"></i>
-            </header>
-
+        <form method="dialog" >
+            
             <label class="label_name">이름</label>
             <input type="text" class="name" placeholder="이름을 입력하세요">
 
@@ -112,7 +110,10 @@
             
             <label class="label_week2">2주차 금잔디조</label>
             <input type="text" class="week2" placeholder="2주차 금잔디조를 입력하세요 (1~9)">
-        </div>
-    </div>
+            <br>
+            <button type="button" id="addData">추가</button>
+        </form>
+    </dialog>
+    <script type="module" src="memberSerch.js"></script>
 </body>
 </html>

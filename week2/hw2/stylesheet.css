@@ -46,7 +46,7 @@ main {
 
 form {
     height: 300px;
-    width: 1000px;
+    width: 900px;
     display: grid;
     grid-area: filter;
     grid-template-areas: 
@@ -61,7 +61,7 @@ form {
     grid-template-rows: 2fr 2fr 2fr 2fr 0.5fr 2fr;
 }
 
-form > label {
+main > form > label {
     background-color: rgb(233, 238, 217);
 }
 
@@ -210,8 +210,47 @@ td {
 
 .modal {
     position: absolute;
-    display: none;
-    width: 100%;
-    justify-content: center;
-    background-color: rgba(50, 50, 50, 0.4);
+    width: 90%; /* 모달 너비를 %로 설정하여 반응형으로 만들기 */
+    max-width: 500px; /* 최대 너비 설정 */
+    height: auto; /* 높이는 자동으로 조정 */
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal form label,
+.modal form input,
+.modal form select,
+.modal form button {
+    display: block;
+    width: 45%;
+    padding: 10px 0;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.modal label {
+    font-weight: bold;
+}
+
+.modal form button{
+    text-align: center;
+    font-size: 15px;
+    background-color: rgb(84, 71, 63);
+    color: white;
+}
+
+#closeModalBtn {
+    position: absolute;
+    top: 50px;
+    right: 30px;
+    cursor: pointer;
 }

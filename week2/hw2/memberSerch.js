@@ -11,9 +11,9 @@ const searchBtn = document.getElementById("searchBtn");
 const resetBtn = document.getElementById("resetBtn");
 const delBtn = document.querySelector("#delBtn");
 const selectAll = document.querySelector("#selectAll");
-const modal = document.querySelector(".modal");
-const openModalBtn = document.querySelector("#openModalBtn");
-const closeModalBtn = document.querySelector("#closeModalBtn")
+const showBtn = document.querySelector("#openModalBtn")
+const modal = document.querySelector('#modal');
+
 
 
 function addTable(data) {
@@ -94,9 +94,8 @@ selectAll.addEventListener("change", () => {
   });
 });
 
-openModalBtn.addEventListener("click", () => {
-  modal.style.display = "flex";
+showBtn.addEventListener("click", () => {
+  modal.showModal();
 });
-
 
 addTable(getData);
