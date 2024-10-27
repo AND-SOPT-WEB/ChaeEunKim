@@ -210,20 +210,20 @@ td {
 
 .modal {
     position: absolute;
-    width: 90%; /* 모달 너비를 %로 설정하여 반응형으로 만들기 */
-    max-width: 500px; /* 최대 너비 설정 */
+    width: 35%; /* 모달 너비를 %로 설정하여 반응형으로 만들기 */
     height: auto; /* 높이는 자동으로 조정 */
     padding: 30px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
 }
 
 .modal form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
+    width: 100%;
 }
 
 .modal form label,
@@ -231,14 +231,22 @@ td {
 .modal form select,
 .modal form button {
     display: block;
-    width: 45%;
-    padding: 10px 0;
+    width:90%;
+    padding: 10px 5%;
     box-sizing: border-box;
     text-align: left;
 }
 
 .modal label {
     font-weight: bold;
+}
+
+.modal input {
+    border: 1px solid black;
+}
+
+.modal select {
+    border: 1px solid black;
 }
 
 .modal form button{
@@ -253,4 +261,8 @@ td {
     top: 50px;
     right: 30px;
     cursor: pointer;
+}
+
+.modal::backdrop{
+    background-color: rgba(72, 72, 72, 0.5);
 }

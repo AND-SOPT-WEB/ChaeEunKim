@@ -13,6 +13,8 @@ const delBtn = document.querySelector("#delBtn");
 const selectAll = document.querySelector("#selectAll");
 const showBtn = document.querySelector("#openModalBtn")
 const modal = document.querySelector('#modal');
+const closeModalBtn = document.querySelector("#closeModalBtn");
+const addDataBtn = document.querySelector("#addData");
 
 
 
@@ -96,6 +98,63 @@ selectAll.addEventListener("change", () => {
 
 showBtn.addEventListener("click", () => {
   modal.showModal();
+});
+
+closeModalBtn.addEventListener("click", () => {
+  modal.close();
+});
+
+addDataBtn.addEventListener("click", () => {
+  const name = document.getElementById("name").value;
+  const englishName = document.getElementById("englishName").value;
+  const github = document.getElementById("github").value;
+  const gender = document.getElementById("gender").value;
+  const role = document.getElementById("role").value;
+  const firstWeekGroup = document.getElementById("firstWeekGroup").value;
+  const secondWeekGroup = document.getElementById("secondWeekGroup").value;
+
+  const newMember = {
+    id: getData.length + 1,  // 이게 뭘까.....
+    name,
+    englishName,
+    github,
+    gender,
+    role,
+    firstWeekGroup,
+    secondWeekGroup
+  };
+
+  console.log(newMember);
+
+  getData.push(newMember);
+  console.log(getData);
+  
+  localStorage.setItem("membersData", JSON.stringify(getData));
+  
+  const row = document.createElement("tr");
+
+  row.innerHTML = `
+    <td><input type="checkbox" class="check"></td>
+    <td>${newMember.name}</td>
+    <td>${newMember.englishName}</td>
+    <td>${newMember.github}</td>
+    <td>${newMember.gender}</td>
+    <td>${newMember.role}</td>
+    <td>${newMember.firstWeekGroup}</td>
+    <td>${newMember.secondWeekGroup}</td>
+  `;
+
+  tbody.appendChild(row);
+
+  document.getElementById("name").value = '';
+  document.getElementById("englishName").value = '';
+  document.getElementById("github").value = '';
+  document.getElementById("gender").value = '';
+  document.getElementById("role").value = '';
+  document.getElementById("firstWeekGroup").value = '';
+  document.getElementById("secondWeekGroup").value = '';
+
+  modal.close();
 });
 
 addTable(getData);

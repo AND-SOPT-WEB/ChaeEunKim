@@ -60,7 +60,7 @@
         <table id="members">
             <thead>
                 <tr>
-                    <th><input type="checkbox" id="selectAll" class="check"></th>>
+                    <th><input type="checkbox" id="selectAll" class="check"></th>
                     <th>이름</th>
                     <th>영문이름</th>
                     <th>GitHub</th>
@@ -83,13 +83,13 @@
         <form method="dialog" >
             
             <label class="label_name">이름</label>
-            <input type="text" class="name" placeholder="이름을 입력하세요">
+            <input type="text" class="name" id="name" placeholder="이름을 입력하세요">
 
             <label class="label_eng">영문이름</label>
-            <input type="text" class="eng_name" placeholder="영문이름을 입력하세요">
+            <input type="text" class="eng_name" id="englishName" placeholder="영문이름을 입력하세요">
 
             <label class="label_git">GitHub</label>
-            <input type="text" class="git_id" placeholder="GitHub ID를 입력하세요">
+            <input type="text" class="git_id" id="github" placeholder="GitHub ID를 입력하세요">
 
             <label class="label_gender">성별</label>
             <select name="gender" id="gender" size="1">
@@ -106,10 +106,10 @@
             </select>
             
             <label class="label_week1">1주차 금잔디조</label>
-            <input type="text" class="week1" placeholder="1주차 금잔디조를 입력하세요 (1~9)">
+            <input type="text" class="week1" id="firstWeekGroup" placeholder="1주차 금잔디조를 입력하세요 (1~9)">
             
             <label class="label_week2">2주차 금잔디조</label>
-            <input type="text" class="week2" placeholder="2주차 금잔디조를 입력하세요 (1~9)">
+            <input type="text" class="week2" id="secondWeekGroup" placeholder="2주차 금잔디조를 입력하세요 (1~9)">
             <br>
             <button type="button" id="addData">추가</button>
         </form>
