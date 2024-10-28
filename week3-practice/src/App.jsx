@@ -8,6 +8,7 @@ function App() {
   return (
     <>
       <Card name={name} engName={engName} />
+      <div>안녕</div>
     </>
   );
 }
