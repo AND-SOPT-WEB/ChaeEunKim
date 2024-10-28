@@ -19,9 +19,7 @@ const addDataBtn = document.querySelector("#addData");
 
 
 function addTable(data) {
-  // tbody.innerHTML = "";
-
-  data.forEach((member) => {
+data.forEach((member) => {
     const row = document.createElement("tr");
 
     row.innerHTML = `
@@ -113,6 +111,11 @@ addDataBtn.addEventListener("click", () => {
   const firstWeekGroup = document.getElementById("firstWeekGroup").value;
   const secondWeekGroup = document.getElementById("secondWeekGroup").value;
 
+  if (!name || !englishName || !github || !gender || !role || !firstWeekGroup || !secondWeekGroup) {
+    alert("모든 필드를 입력해주세요.");
+    return;
+  }
+
   const newMember = {
     id: getData.length + 1,  // 이게 뭘까.....
     name,
@@ -128,7 +131,7 @@ addDataBtn.addEventListener("click", () => {
 
   getData.push(newMember);
   console.log(getData);
-  
+
   localStorage.setItem("membersData", JSON.stringify(getData));
   
   const row = document.createElement("tr");
@@ -155,6 +158,17 @@ addDataBtn.addEventListener("click", () => {
   document.getElementById("secondWeekGroup").value = '';
 
   modal.close();
+
+  window.location.reload();
 });
+
+modal.addEventListener('click', function(event) {
+  const target = event.target;
+  const rect = target.getBoundingClientRect();
+  if (rect.left > event.clientX || rect.right < event.clientX ||
+    rect.top > event.clientY || rect.bottom < event.clientY) {
+      modal.close();
+    }
+})
 
 addTable(getData);
