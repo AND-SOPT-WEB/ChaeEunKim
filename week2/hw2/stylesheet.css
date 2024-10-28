@@ -27,6 +27,7 @@ header {
     text-align: center;
     font-size: 30px;
     font-weight: bold;
+    color: rgb(89, 100, 27);
 }
 
 .profile {
@@ -210,8 +211,8 @@ td {
 
 .modal {
     position: absolute;
-    width: 25%; /* 모달 너비를 %로 설정하여 반응형으로 만들기 */
-    height: 90%; /* 높이는 자동으로 조정 */
+    width: 25%;
+    height: 90%;
     padding: 10px;
     background-color: white;
     border-radius: 10px;
@@ -275,4 +276,8 @@ td {
 
 .modal::backdrop{
     background-color: rgba(72, 72, 72, 0.5);
+}
+
+a {
+    color: black;
 }

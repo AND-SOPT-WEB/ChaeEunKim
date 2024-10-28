@@ -26,7 +26,7 @@ data.forEach((member) => {
       <td><input type="checkbox" class="check"></td>
       <td>${member.name}</td>
       <td>${member.englishName}</td>
-      <td>${member.github}</td>
+      <td><a href="https://github.com/${member.github}" target="_blank">${member.github}</a></td>
       <td>${member.gender}</td>
       <td>${member.role}</td>
       <td>${member.firstWeekGroup}</td>
