@@ -21,9 +21,10 @@ const addDataBtn = document.querySelector("#addData");
 function addTable(data) {
 data.forEach((member) => {
     const row = document.createElement("tr");
+    row.setAttribute("id", member.id)
 
     row.innerHTML = `
-      <td><input type="checkbox" class="check"></td>
+      <td><input type="checkbox" class="check" /></td>
       <td>${member.name}</td>
       <td>${member.englishName}</td>
       <td><a href="https://github.com/${member.github}" target="_blank">${member.github}</a></td>
@@ -73,17 +74,23 @@ resetBtn.addEventListener("click", () => {
 });
 
 delBtn.addEventListener("click", () => {
-  const newData = getData.filter((member, index) => {
-    const checkRow = tbody.rows[index].querySelector(".check");
-    return !checkRow.checked;
-  });
-
-  localStorage.setItem("membersData", JSON.stringify(newData))
-
-  window.location.reload();
-  tbody.innerHTML = "";
-  addTable(newData);
+  const checked = document.querySelectorAll(".check:checked");
+  const checkedTrs = Array.from(checked).map((checkedTr) => parseInt(
+    checkedTr.closest("tr").id
+  ))
+  const newMember = getData.filter(member => {
+    return !checkedTrs.includes(member.id);
 });
+  console.log(newMember);
+
+  localStorage.setItem("membersData", JSON.stringify(newMember))
+
+  // window.location.reload();
+  tbody.innerHTML = "";
+  addTable(newMember);
+});
+
+
 
 selectAll.addEventListener("change", () => {
   const isChecked = selectAll.checked;
