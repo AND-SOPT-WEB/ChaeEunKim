@@ -124,7 +124,7 @@ addDataBtn.addEventListener("click", () => {
   }
 
   const newMember = {
-    id: getData.length + 1,  // 이게 뭘까.....
+    id: getData.length + 1,
     name,
     englishName,
     github,
