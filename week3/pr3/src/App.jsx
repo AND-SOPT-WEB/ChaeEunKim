@@ -9,7 +9,7 @@ function App() {
     <div className='cards'>
       {members.map(member => (
         <Card
-        num = {member.id}
+        key = {member.id}
         name = {member.name}
         engName = {member.englishName}
         github = {member.github}
