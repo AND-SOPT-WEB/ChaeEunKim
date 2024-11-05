@@ -29,6 +29,11 @@ function App() {
     setCount(0);
   }
 
+  // 게임 종료
+  const stopCount = () => {
+    setRunTimer(false);
+  }
+
   return (
     <div className='menu-bar'>
 
@@ -36,7 +41,9 @@ function App() {
       <Header selected={selected} onChange={changeSelect} count={count} />
 
       <main>
-        {selected === '게임' ? <Game startCount={startCount} /> : <Ranking />}
+        {selected === '게임' ? 
+        <Game startCount={startCount} stopCount={stopCount} count={count}/> : 
+        <Ranking />}
       </main>
     </div>
   )

@@ -53,7 +53,7 @@ const Title = styled.div`
 
 const Text = styled.h3`
     display: flex;
-    juntify-content: center;
+    justify-content: center;
 `;
 
 const Reset = styled.button`

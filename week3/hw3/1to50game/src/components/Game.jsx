@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from "@emotion/styled";
 
-function Game({ startCount }) {
+function Game({ startCount, stopCount, count }) {
     const [clickNumber, setClickNumber] = useState(1);
     const [number, setNumber] = useState([]);
-    
 
     const click = (num, num2) => {
         // 1 클릭하면 카운트 시작
@@ -17,8 +16,8 @@ function Game({ startCount }) {
 
             if(num === clickNumber){            
                 setNumber(prevNumbers => 
-                 prevNumbers.map((item) =>
-                    item[0].num === num ? [{...item[0], isClick: true}, item[1]] : item
+                    prevNumbers.map((item) =>
+                        item[0].num === num ? [{...item[0], isClick: true}, item[1]] : item
                     )
                 );
             }
@@ -31,10 +30,14 @@ function Game({ startCount }) {
             }
 
         }
+        
 
         if (clickNumber === 18) {
+            // 타이머 정지
+            stopCount();
 
-            alert("게임 끝! 기록: ${}초");
+            // 알림창 띄우기
+            alert(`게임 끝! 기록: ${count.toFixed(2)}초`);
         }
     };
 
@@ -67,7 +70,10 @@ function Game({ startCount }) {
             <Guide>다음 숫자: {clickNumber}</Guide>
             <GameBoard>
                 {number.map((num) => (
-                    <GameButtons key={num[0].num} onClick={() => click(num[0].num, num[1].num)}>
+                    <GameButtons 
+                        key={num[0].num} 
+                        onClick={() => click(num[0].num, num[1].num)}
+                    >
                         {num[0].isClick ? num[1].num : num[0].num}
                     </GameButtons>
                 ))}
@@ -98,8 +104,8 @@ const GameBoard = styled.div`
 `;
 
 const GameButtons = styled.button`
-width: 50px;
-height: 50px;
+    width: 50px;
+    height: 50px;
     font-size: 1rem;
     border-radius: 0;
     border-width: 0;
