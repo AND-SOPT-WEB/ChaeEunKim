@@ -20,7 +20,7 @@ export const loginStyle = css`
     }
 
     & input {
-        width: 15rem;
+        width: 20rem;
         height: 2.5rem;
         background-color: white;
         border: solid 0.1px lightgrey;
@@ -29,7 +29,7 @@ export const loginStyle = css`
     }
 
     & button {
-        width: 15rem;
+        width: 20rem;
         height: 2.5rem;
         background-color: #CBDCEB;
         border-width: 0;
@@ -46,7 +46,6 @@ export const loginStyle = css`
     }
 
     & p {
-        font-size: 0.8rem;
         text-decoration: underline;
         text-decoration-color: #31363F;
         color: #31363F;
