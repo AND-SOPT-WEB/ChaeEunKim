@@ -14,20 +14,18 @@ const Signup = () => {
     <main css={signupStyle}>
       <h2>회원가입</h2>
 
-      {/* 질문.. async를 왜 쓰나요 */}
       {step === 1 && <SignUpName onNext={async () => setStep(2)} />}
       {step === 2 && <SignUpPw onNext={async () => setStep(3)} />}
       {step === 3 && <SignUpHobby />}
 
       <div>
         <p>이미 회원이신가요?</p>
-        <p 
-          className="loginBtn"
-          onClick={() => navigate('/')}
-        >로그인</p>
+        <p className="loginBtn" onClick={() => navigate("/")}>
+          로그인
+        </p>
       </div>
     </main>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;

@@ -16,11 +16,17 @@ export const signupStyle = css`
     
     & button {
         height: 2.5rem;
-        background-color: lightgray;
+        background-color: #31363F;
         border-width: 0;
         border-radius: 2px;
         font-size: 1.1rem;
         color: white;
         transition-duration: 0.3s;
+        cursor: pointer;
+    }
+
+    & :disabled {
+        background-color: lightgray;
+        cursor: not-allowed;
     }
 `;

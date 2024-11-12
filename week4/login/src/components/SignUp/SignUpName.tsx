@@ -5,12 +5,14 @@ import { signupStyle } from "./SignUp.style";
 interface signuptype {
   onNext: () => {};
 }
+
 const SignUpName: React.FC<signuptype> = ({ onNext }) => {
     const [userName, setUserName] = useState("");
 
     const hansdleInputChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         setUserName(e.target.value)
     }
+
   return (
     <main css={signupStyle}>
       <h4>이름</h4>
