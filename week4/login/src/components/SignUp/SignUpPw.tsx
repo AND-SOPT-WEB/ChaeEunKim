@@ -3,15 +3,18 @@ import { useState } from "react";
 import { signupStyle } from "./SignUp.style";
 
 interface signuptype {
-  onNext: () => {};
+  onNext: () => void;
+  password: string
+  setPassword: (value: string) => void;
 }
 
-const SignUpPw: React.FC<signuptype> = ({ onNext }) => {
+const SignUpPw: React.FC<signuptype> = ({ onNext, setPassword }) => {
     const [password1, setPassword1] = useState("");
     const [password2, setPassword2 ] = useState("");
 
     const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>) => {
         setPassword1(e.target.value)
+        setPassword(e.target.value)
     }
     const handleInputChange2 = (e:React.ChangeEvent<HTMLInputElement>) => {
         setPassword2(e.target.value)

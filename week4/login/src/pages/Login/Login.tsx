@@ -20,7 +20,10 @@ const Login = () => {
           name="password" 
           placeholder="비밀번호" 
         />
-        <button type="submit">로그인</button>
+        <button 
+          type="submit"
+          onClick={() => navigate('/mypage')}
+        >로그인</button>
       </div>
 
       <p onClick={() => navigate('/signup')}>회원가입</p>

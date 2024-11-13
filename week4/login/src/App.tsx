@@ -10,7 +10,7 @@ const App = () => {
       <Global styles={GlobalStyle} />
       <Routes>
         <Route path='/' element={<Login />} />
-        <Route path='/Signup' element={<Signup />} />
+        <Route path='/signup' element={<Signup />} />
       </Routes>
     </Router>
   );

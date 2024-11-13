@@ -1,12 +1,14 @@
 /** @jsxImportSource @emotion/react */
-import { useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { signupStyle } from "./SignUp.style";
-import { useNavigate } from "react-router-dom";
 
-const SignUpHobby = () => {
-  const [hobby, setHobby] = useState("");
-  const navigate = useNavigate();
+interface signuptype {
+  hobby: string
+  setHobby: Dispatch<SetStateAction<string>>;
+  onSubmit: () => Promise<void>;
+}
 
+const SignUpHobby:React.FC<signuptype> = ({ hobby, setHobby, onSubmit }) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setHobby(e.target.value);
   };
@@ -23,7 +25,7 @@ const SignUpHobby = () => {
       />
       <button
         type="submit"
-        onClick={() => navigate("/")}
+        onClick={onSubmit}
         disabled={hobby.trim() === ""}
       >
         회원가입
