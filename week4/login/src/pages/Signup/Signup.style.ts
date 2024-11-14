@@ -4,7 +4,7 @@ export const signupStyle = css`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10%;
+  margin-top: 5%;
   gap: 0.7rem;
 
   & div {

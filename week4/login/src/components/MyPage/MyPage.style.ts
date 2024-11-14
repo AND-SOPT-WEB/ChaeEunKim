@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 export const myPageStyle = css`
     display: flex;
     justify-content: center;
-    margin-top: 10%;   
+    margin-top: 5%;   
 
     & .top {
         display: flex;
@@ -42,5 +42,10 @@ export const myPageStyle = css`
             background-color: #608BC1;
             color: white;
         }
+    }
+
+    & p {
+        font-size: 1rem;
+        color: #134B70;
     }
 `;
