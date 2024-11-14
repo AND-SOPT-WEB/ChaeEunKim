@@ -1,22 +1,20 @@
 import { css } from "@emotion/react";
 
-export const loginStyle = css`
+export const myPageStyle = css`
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10%;
-    gap: 0.7rem;
+    margin-top: 10%;   
 
-    & h2 {
-        color: #31363F;
+    & .top {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1.3rem;
     }
 
-    & div {
+    & .bottom {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 0.3rem;
+        gap: 0.5rem;
     }
 
     & input {
@@ -43,16 +41,6 @@ export const loginStyle = css`
             cursor: pointer;
             background-color: #608BC1;
             color: white;
-        }
-    }
-
-    & p {
-        text-decoration: underline;
-        text-decoration-color: #31363F;
-        color: #31363F;
-
-        &:hover {
-            cursor: pointer;
         }
     }
 `;
