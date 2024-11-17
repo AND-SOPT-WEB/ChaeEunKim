@@ -6,6 +6,7 @@ import axios from "axios";
 const MyPageHobby = () => {
   const [hobby, setHobby] = useState("");
   const [no, setNo] = useState("");
+  const [serchedNo, setSearchedNo] = useState("");
   const [othersHobby, setOthersHobby] = useState("");
   const [isHobbyVisible, setIsHobbyVisible] = useState(false);
 
@@ -35,8 +36,9 @@ const MyPageHobby = () => {
           },
         }
       );
-      setOthersHobby(response.data.result.hobby);
       setIsHobbyVisible(true);
+      setOthersHobby(response.data.result.hobby);
+      setSearchedNo(no)
     } catch (error) {
       alert("다시 시도하세요.");
     }
@@ -64,7 +66,7 @@ const MyPageHobby = () => {
           />
           <button onClick={searchHobby}>검색</button>
           <p onClick={() => setIsHobbyVisible(!isHobbyVisible)}>
-            {isHobbyVisible ? `${no}번 사용자의 취미: ${othersHobby}` : null}
+            {isHobbyVisible ? `${serchedNo}번 사용자의 취미: ${othersHobby}` : null}
           </p>
         </div>
       </div>

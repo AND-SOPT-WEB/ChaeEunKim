@@ -1,11 +1,18 @@
-// import { Theme } from "@emotion/react";
+const theme = {
+  color: {
+    primaryText: "#31363f",
+    detailText: "#134b70",
 
-// const theme: Theme = {
-//   color: {
-//     primaryText: "#31363F",
-//   },
-// };
+    header: "#201e43",
+    button1: "#cbdceb",
+    botton2: "#608bc1",
+    button3: "#31363f",
 
-// export type ColorType = typeof theme.color;
+    white: "#ffffff",
+    lightgray: "#d3d3d3",
+  },
+};
 
-// export default theme;
+export type ColorType = typeof theme.color;
+
+export default theme;

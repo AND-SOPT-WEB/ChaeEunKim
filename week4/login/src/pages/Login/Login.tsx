@@ -10,7 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const login = async () => {
-    const response:any = await axios.post("http://211.188.53.75:8080/login", {
+    const response: any = await axios.post("http://211.188.53.75:8080/login", {
       username,
       password,
     });
@@ -18,7 +18,7 @@ const Login = () => {
 
     if (response.status === 200) {
       localStorage.setItem("token", response.data.result.token);
-      navigate("/mypage")
+      navigate("/mypage");
     }
   };
 
