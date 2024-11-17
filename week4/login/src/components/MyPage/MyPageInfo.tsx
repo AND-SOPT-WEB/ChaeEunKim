@@ -24,7 +24,6 @@ const MyPageInfo = () => {
         },
       }
     );
-    // console.log(response);
   };
 
   return (
