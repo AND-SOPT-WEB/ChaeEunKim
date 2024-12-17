@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import { signupStyle } from "./SignUp.style";
 
 interface signuptype {

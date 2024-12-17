@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { loginStyle } from "./Login.style";
