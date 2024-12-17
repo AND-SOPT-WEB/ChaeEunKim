@@ -1,283 +1,247 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    background-color: rgb(220, 224, 207);
+  margin: 0;
+  background-color: rgb(220, 224, 207);
 }
 
 header {
-    width: 100%;
-    background-color: rgb(203, 210, 164);
-    padding: 20px;
+  width: 100%;
+  background-color: rgb(203, 210, 164);
+  padding: 20px;
 }
 
-.header {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
+.header-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
 }
 
-.header i {
-    text-align: left;
+.header-nav i {
+  text-align: left;
 }
 
 .title {
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    color: rgb(89, 100, 27);
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(89, 100, 27);
 }
 
 .profile {
-    text-align: right;
+  text-align: right;
 }
 
 main {
-    padding-top: 20px;
-    padding-bottom: 30px;
-    display: grid;
-    grid-template-areas: 
-        ". filter ."
-        ". btn ."
-        ". table .";
-    grid-template-columns: 1fr 1fr 1fr;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 30px;
 }
 
 form {
-    height: 300px;
-    width: 900px;
-    display: grid;
-    grid-area: filter;
-    grid-template-areas: 
-        "label_name name name name name name"
-        "label_eng eng_name eng_name eng_name eng_name eng_name"
-        "label_git git_id label_gender gender label_role role"
-        "label_week1 week1 week1 label_week2 week2 week2"
-        ". . . . . ."
-        "btn_rs btn_rs btn_rs btn_sm btn_sm btn_sm";
-    gap: 7px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 2fr 2fr 2fr 2fr 0.5fr 2fr;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  background-color: rgb(203, 210, 164);
+  padding: 15px;
 }
 
-main > form > label {
-    background-color: rgb(233, 238, 217);
+form > div {
+  display: flex;
+  align-items: center;
+  grid-column: span 6;
 }
 
-label {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+form > div:nth-child(3),
+form > div:nth-child(4),
+form > div:nth-child(5) {
+  grid-column: span 2;
 }
 
-input,
+form > div:nth-child(6),
+form > div:nth-child(7) {
+  grid-column: span 3;
+}
+
+form > div > label {
+  font-weight: bold;
+  white-space: nowrap;
+  background-color: rgb(233, 238, 217);
+  text-align: center;
+  padding: 20px 10px;
+  width: 130px;
+  flex-shrink: 0;
+}
+
+form > div > input,
 select {
-    border-width: 0;
-    padding-left: 10px;
+  flex: 1;
+  border: 1px solid #ccc;
+  border-left: none;
 }
 
-.labl_name {
-    grid-area: label_name;
-}
-.name {
-    grid-area: name;
+form > div > input {
+  width: 100%;
+  padding: 22px 10px;
 }
 
-.labl_eng {
-    grid-area: label_eng;
-}
-.eng_name {
-    grid-area: eng_name;
-}
-
-.labl_git {
-    grid-area: label_git;
-}
-.git_id {
-    grid-area: git_id;
-}
-
-.label_gender {
-    grid-area: label_gender;
-}
-.gender {
-    grid-area: gender;
-}
-
-.labl_role {
-    grid-area: label_role;
-}
-.role {
-    grid-area: role;
-}
-
-.labl_week1 {
-    grid-area: label_name;
-}
-.week1 {
-    grid-area: week1;
-}
-
-.labl_week2 {
-    grid-area: label_name;
-}
-.week2 {
-    grid-area: week2;
-}
-
-.reset {
-    grid-area: btn_rs;
-    background-color: rgb(154, 126, 111);
-    color: white;
-    font-size: 15px;
-}
-
-.submit {
-    grid-area: btn_sm;
-    background-color: rgb(84, 71, 63);
-    color: white;
-    font-size: 15px;
-}
-
-main form {
-    grid-area: filter;
-    background-color: rgb(203, 210, 164);
-    padding: 13px;
+form > div > select {
+  padding: 21px 10px;
 }
 
 button {
-    border-width: 0;
-    border-radius: 5px;
+  grid-column: span 3;
+  padding: 10px;
+  color: white;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-#members {
-    grid-area: table;
-    background-color: (154, 126, 111);}
+.reset {
+  background-color: rgb(154, 126, 111);
+}
+
+.submit {
+  background-color: rgb(84, 71, 63);
+}
+
+main form {
+  grid-area: filter;
+  background-color: rgb(203, 210, 164);
+  padding: 13px;
+}
+
+button {
+  border-width: 0;
+  border-radius: 5px;
+}
 
 .btns {
-    grid-area: btn;
-    display: flex;
-    justify-content: flex-end;
-    padding-top: 30px;
-    padding-bottom: 5px;
-    column-gap: 10px;
+  grid-area: btn;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 30px;
+  padding-bottom: 5px;
+  gap: 10px;
 }
 
 .btn {
-    padding: 10px 0px;
-    width: 110px;
+  padding: 10px 0px;
+  width: 110px;
 }
 
 .delete {
-    background-color:  rgb(154, 126, 111);
-    color: white;
-    font-size: 15px;
+  background-color: rgb(154, 126, 111);
+  color: white;
+  font-size: 15px;
 }
 
 .add {
-    background-color: rgb(84, 71, 63);
-    color: white;
-    font-size: 15px;
-}
-
-th {
-    background-color: rgb(154, 126, 111);
-    color: white;
-    padding: 15px 0;
-}
-
-tbody {
-    background-color: rgb(251, 251, 251);
-    text-align: center;
+  background-color: rgb(84, 71, 63);
+  color: white;
+  font-size: 15px;
 }
 
 table {
-    border-collapse: collapse;
-    width: 100%;
-    border: 1px solid rgb(225, 200, 185);
+  grid-area: table;
+  background-color: (154, 126, 111);
 }
 
-th, td {
-    border: 1px solid rgb(225, 200, 185);
+th {
+  background-color: rgb(154, 126, 111);
+  color: white;
+  padding: 15px 0;
 }
 
+tbody {
+  background-color: rgb(251, 251, 251);
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid rgb(225, 200, 185);
+}
+
+th,
+td {
+  border: 1px solid rgb(225, 200, 185);
+}
 
 td {
-    padding: 15px 0;
+  padding: 15px 0;
 }
 
 .modal {
-    position: absolute;
-    width: 25%;
-    height: 90%;
-    padding: 10px;
-    background-color: white;
-    border-radius: 10px;
-    border-color: transparent;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  width: 30rem;
+  height: 90%;
+  padding: 10px 20px;
+  background-color: white;
+  border-radius: 10px;
+  border-color: transparent;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.modal > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .modal > h2 {
-    padding-left: 20px;
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 #closeModalBtn {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .modal form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .modal form label,
 .modal form input,
 .modal form select,
 .modal form button {
-    display: block;
-    width:90%;
-    box-sizing: border-box;
-    text-align: left;
+  display: block;
+  width: 90%;
+  text-align: left;
 }
 
 .modal label {
-    font-weight: bold;
-    padding-top: 5%;
+  font-weight: bold;
+  padding-top: 5%;
 }
 
-.modal input {
-    border: 1px solid black;
-    border-radius: 3px;
-    padding: 10px;
-}
-
+.modal input,
 .modal select {
-    border: 1px solid black;
-    border-radius: 3px;
-    padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 10px;
 }
 
-.modal form button{
-    text-align: center;
-    font-size: 15px;
-    background-color: rgb(84, 71, 63);
-    color: white;
-    padding: 10px 5%;
+.modal form button {
+  text-align: center;
+  font-size: 15px;
+  background-color: rgb(84, 71, 63);
+  color: white;
+  padding: 10px 5%;
 }
 
-.modal::backdrop{
-    background-color: rgba(72, 72, 72, 0.5);
+.modal::backdrop {
+  background-color: rgba(72, 72, 72, 0.5);
 }
 
 a {
-    color: black;
+  color: black;
 }

@@ -1,4 +1,4 @@
-import { members } from './members.js';
+import { members } from "./members.js";
 
 if (!localStorage.getItem("membersData")) {
   localStorage.setItem("membersData", JSON.stringify(members));
@@ -7,21 +7,19 @@ if (!localStorage.getItem("membersData")) {
 const getData = JSON.parse(localStorage.getItem("membersData"));
 
 const tbody = document.querySelector("#members tbody");
-const searchBtn = document.getElementById("searchBtn");
-const resetBtn = document.getElementById("resetBtn");
+const searchBtn = document.querySelector("#searchBtn");
+const resetBtn = document.querySelector("#resetBtn");
 const delBtn = document.querySelector("#delBtn");
 const selectAll = document.querySelector("#selectAll");
-const showBtn = document.querySelector("#openModalBtn")
-const modal = document.querySelector('#modal');
+const showBtn = document.querySelector("#openModalBtn");
+const modal = document.querySelector("#modal");
 const closeModalBtn = document.querySelector("#closeModalBtn");
 const addDataBtn = document.querySelector("#addData");
 
-
-
 function addTable(data) {
-data.forEach((member) => {
+  data.forEach((member) => {
     const row = document.createElement("tr");
-    row.setAttribute("id", member.id)
+    row.setAttribute("id", member.id);
 
     row.innerHTML = `
       <td><input type="checkbox" class="check" /></td>
@@ -42,83 +40,113 @@ searchBtn.addEventListener("click", () => {
   const searchName = document.querySelector(".name").value;
   const searchEngName = document.querySelector(".eng_name").value.toLowerCase();
   const searchGithub = document.querySelector(".git_id").value.toLowerCase();
-  const searchGender = document.querySelector('select#gender').value;
-  const searchRole = document.querySelector('select#role').value;
+  const searchGender = document.querySelector("#gender").value;
+  const searchRole = document.querySelector("#role").value;
   const searchWeek1 = document.querySelector(".week1").value;
   const searchWeek2 = document.querySelector(".week2").value;
 
-  const filteredData = getData.filter(member => 
-    member.name.includes(searchName) && 
-    member.englishName.toLowerCase().includes(searchEngName) &&
-    member.github.toLowerCase().includes(searchGithub) &&
-    (searchGender === "none" || member.gender === searchGender) &&
-    (searchRole === "none" || member.role.toLowerCase() === searchRole) &&
-    (searchWeek1 === "" || member.firstWeekGroup == searchWeek1) &&
-    (searchWeek2 === "" || member.secondWeekGroup == searchWeek2)
-  );
+  const filteredData = getData.filter((member) => {
+    if (searchName && !member.name.includes(searchName)) return false;
+    if (
+      searchEngName &&
+      !member.englishName.toLowerCase().includes(searchEngName)
+    )
+      return false;
 
+    if (searchGithub && !member.github.toLowerCase().includes(searchGithub))
+      return false;
+    if (
+      searchGender &&
+      searchGender !== "none" &&
+      member.gender !== searchGender
+    )
+      return false;
+    if (searchRole && searchRole !== "none" && member.role !== searchRole)
+      return false;
+    if (searchWeek1 && member.firstWeekGroup !== searchWeek1) return false;
+    if (searchWeek2 && member.secondWeekGroup !== searchWeek2) return false;
+    return true;
+  });
   tbody.innerHTML = "";
   addTable(filteredData);
 });
 
 resetBtn.addEventListener("click", () => {
-  // document.querySelector(".name").value = '';
-  // document.querySelector(".eng_name").value = '';
-  // document.querySelector(".git_id").value = '';
-  // document.querySelector('select#gender').value = '';
-  // document.querySelector('select#role').value = '';
-  // document.querySelector(".week1").value = '';
-  // document.querySelector(".week2").value = '';
-
-  window.location.reload();
+  document.querySelector(".name").value = "";
+  document.querySelector(".eng_name").value = "";
+  document.querySelector(".git_id").value = "";
+  document.querySelector("select#gender").value = "";
+  document.querySelector("select#role").value = "";
+  document.querySelector(".week1").value = "";
+  document.querySelector(".week2").value = "";
 });
 
 delBtn.addEventListener("click", () => {
   const checked = document.querySelectorAll(".check:checked");
-  const checkedTrs = Array.from(checked).map((checkedTr) => parseInt(
-    checkedTr.closest("tr").id
-  ))
-  const newMember = getData.filter(member => {
+  const checkedTrs = Array.from(checked).map((checkedTr) =>
+    parseInt(checkedTr.closest("tr").id)
+  );
+  const newMember = getData.filter((member) => {
     return !checkedTrs.includes(member.id);
-});
+  });
   console.log(newMember);
 
-  localStorage.setItem("membersData", JSON.stringify(newMember))
+  localStorage.setItem("membersData", JSON.stringify(newMember));
 
-  // window.location.reload();
   tbody.innerHTML = "";
   addTable(newMember);
 });
 
-
-
 selectAll.addEventListener("change", () => {
   const isChecked = selectAll.checked;
 
-  const dataCheckbox = tbody.querySelectorAll(".check")
-  dataCheckbox.forEach(checkbox => {
+  const dataCheckbox = tbody.querySelectorAll(".check");
+  dataCheckbox.forEach((checkbox) => {
     checkbox.checked = isChecked;
   });
 });
 
-showBtn.addEventListener("click", () => {
-  modal.showModal();
+// tbody의 개별 체크박스 상태 변화 감지
+tbody.addEventListener("change", (e) => {
+  if (e.target.classList.contains("check")) {
+    const dataCheckbox = tbody.querySelectorAll(".check");
+    const checkedCheckbox = tbody.querySelectorAll(".check:checked");
+
+    // 전체 체크박스가 모두 체크되었는지 확인
+    selectAll.checked = dataCheckbox.length === checkedCheckbox.length;
+  }
 });
 
-closeModalBtn.addEventListener("click", () => {
-  modal.close();
-});
+// 모달 열기 및 닫기 함수 분리 (화살표 함수로 변환)
+const openModal = () => modal.showModal();
+const closeModal = () => modal.close();
+
+// 이벤트 리스너에서 함수 호출
+showBtn.addEventListener("click", openModal);
+closeModalBtn.addEventListener("click", closeModal);
 
 addDataBtn.addEventListener("click", () => {
-  const name = document.getElementById("name").value;
-  const englishName = document.getElementById("englishName").value;
-  const github = document.getElementById("github").value;
-  const gender = document.getElementById("gender").value;
-  const role = document.getElementById("role").value;
-  const firstWeekGroup = document.getElementById("firstWeekGroup").value;
-  const secondWeekGroup = document.getElementById("secondWeekGroup").value;
+  const name = document.getElementById("modalName").value.trim();
+  const englishName = document.getElementById("modalEnglishName").value.trim();
+  const github = document.getElementById("modalGithub").value.trim();
+  const gender = document.getElementById("modalGender").value;
+  const role = document.getElementById("modalRole").value;
+  const firstWeekGroup = document
+    .getElementById("modalFirstWeekGroup")
+    .value.trim();
+  const secondWeekGroup = document
+    .getElementById("modalSecondWeekGroup")
+    .value.trim();
 
-  if (!name || !englishName || !github || !gender || !role || !firstWeekGroup || !secondWeekGroup) {
+  if (
+    !name ||
+    !englishName ||
+    !github ||
+    !gender ||
+    !role ||
+    !firstWeekGroup ||
+    !secondWeekGroup
+  ) {
     alert("모든 필드를 입력해주세요.");
     return;
   }
@@ -131,51 +159,22 @@ addDataBtn.addEventListener("click", () => {
     gender,
     role,
     firstWeekGroup,
-    secondWeekGroup
+    secondWeekGroup,
   };
 
-  console.log(newMember);
-
   getData.push(newMember);
-  console.log(getData);
-
   localStorage.setItem("membersData", JSON.stringify(getData));
-  
-  const row = document.createElement("tr");
 
-  row.innerHTML = `
-    <td><input type="checkbox" class="check"></td>
-    <td>${newMember.name}</td>
-    <td>${newMember.englishName}</td>
-    <td>${newMember.github}</td>
-    <td>${newMember.gender}</td>
-    <td>${newMember.role}</td>
-    <td>${newMember.firstWeekGroup}</td>
-    <td>${newMember.secondWeekGroup}</td>
-  `;
+  tbody.innerHTML = "";
+  addTable(getData);
 
-  tbody.appendChild(row);
-
-  document.getElementById("name").value = '';
-  document.getElementById("englishName").value = '';
-  document.getElementById("github").value = '';
-  document.getElementById("gender").value = '';
-  document.getElementById("role").value = '';
-  document.getElementById("firstWeekGroup").value = '';
-  document.getElementById("secondWeekGroup").value = '';
+  document.querySelector("form").reset();
 
   modal.close();
-
-  window.location.reload();
 });
 
-modal.addEventListener('click', function(event) {
-  const target = event.target;
-  const rect = target.getBoundingClientRect();
-  if (rect.left > event.clientX || rect.right < event.clientX ||
-    rect.top > event.clientY || rect.bottom < event.clientY) {
-      modal.close();
-    }
-})
+modal.addEventListener("click", (e) => {
+  if (e.target === e.currentTarget) modal.close();
+});
 
 addTable(getData);
