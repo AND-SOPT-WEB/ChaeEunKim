@@ -15,13 +15,13 @@ export const leftStyle = css`
   display: flex;
   background-color: ${theme.color.header};
 
-  & h2 {
+  h2 {
     color: white;
     margin-right: 1rem;
     background-color: ${theme.color.header};
   }
 
-  & button {
+  button {
     color: white;
     border: 0;
     font-size: 1rem;
@@ -31,7 +31,7 @@ export const leftStyle = css`
 `;
 
 export const rightStyle = css`
-  & button {
+  button {
     color: white;
     border: 0;
     font-size: 1rem;

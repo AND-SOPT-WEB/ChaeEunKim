@@ -11,8 +11,8 @@ const MyPageHobby = () => {
   const [isHobbyVisible, setIsHobbyVisible] = useState(false);
 
   const myHobby = async () => {
-    const response: any = await axios.get(
-      "http://211.188.53.75:8080/user/my-hobby",
+    const response = await axios.get(
+      "http://223.130.135.50:8085/user/my-hobby",
       {
         headers: {
           token: localStorage.getItem("token"),
@@ -28,8 +28,8 @@ const MyPageHobby = () => {
 
   const searchHobby = async () => {
     try {
-      const response: any = await axios.get(
-        `http://211.188.53.75:8080/user/${no}/hobby`,
+      const response = await axios.get(
+        `http://223.130.135.50:8085/user/${no}/hobby`,
         {
           headers: {
             token: localStorage.getItem("token"),

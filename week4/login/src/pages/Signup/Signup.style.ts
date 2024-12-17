@@ -7,18 +7,18 @@ export const signupStyle = css`
   margin-top: 5%;
   gap: 0.7rem;
 
-  & div {
+  div {
     display: flex;
     font-size: 1rem;
   }
 
-  & .loginBtn {
+  .loginBtn {
     font-weight: 500;
     text-decoration: underline;
     cursor: pointer;
   }
 
-  & div {
+  div {
     gap: 0.5rem;
   }
 `;

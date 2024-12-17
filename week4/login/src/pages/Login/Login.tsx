@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { loginStyle } from "./Login.style";
@@ -9,11 +10,10 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const login = async () => {
-    const response: any = await axios.post("http://211.188.53.75:8080/login", {
+    const response = await axios.post("http://223.130.135.50:8085/login", {
       username,
       password,
     });
-    console.log(response);
 
     if (response.status === 200) {
       localStorage.setItem("token", response.data.result.token);

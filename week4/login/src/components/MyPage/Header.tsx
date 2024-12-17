@@ -7,7 +7,7 @@ interface HeaderType {
   onChange: (value: string) => void;
 }
 
-const Header: React.FC<HeaderType> = ({ onChange }) => {
+const Header = ({ onChange }: HeaderType) => {
   const navigate = useNavigate();
 
   const logOut = () => {

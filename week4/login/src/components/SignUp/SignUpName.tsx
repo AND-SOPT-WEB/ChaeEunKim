@@ -1,15 +1,18 @@
-import { signupStyle } from "./SignUp.style";
+import { signupStyle, errorMessageStyle } from "./SignUp.style";
 
 interface signuptype {
   onNext: () => void;
   userName: string;
-  setUserName: (value: string) => void
+  setUserName: (value: string) => void;
 }
 
-const SignUpName: React.FC<signuptype> = ({ onNext, userName, setUserName }) => {
-    const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-        setUserName(e.target.value)
-    }
+const SignUpName = ({ onNext, userName, setUserName }: signuptype) => {
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserName(e.target.value);
+  };
+
+  const isButtonDisabled = userName.trim() === "" || userName.length > 8;
 
   return (
     <main css={signupStyle}>
@@ -21,10 +24,13 @@ const SignUpName: React.FC<signuptype> = ({ onNext, userName, setUserName }) => 
         value={userName}
         onChange={handleInputChange}
       />
+      {userName.length > 8 && (
+        <span css={errorMessageStyle}>이름은 8자 이하로 입력해주세요</span>
+      )}
       <button
         type="submit"
         onClick={onNext}
-        disabled={userName.trim() === ""}
+        disabled={isButtonDisabled}
       >
         다음
       </button>

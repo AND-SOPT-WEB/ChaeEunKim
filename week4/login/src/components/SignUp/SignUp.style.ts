@@ -6,7 +6,7 @@ export const signupStyle = css`
   flex-direction: column;
   gap: 0.7rem;
 
-  & input {
+  input {
     width: 20rem;
     height: 2.5rem;
     background-color: ${theme.color.white};
@@ -15,7 +15,7 @@ export const signupStyle = css`
     padding: 0 0.5rem;
   }
 
-  & button {
+  button {
     height: 2.5rem;
     background-color: ${theme.color.button3};
     border-width: 0;
@@ -26,8 +26,34 @@ export const signupStyle = css`
     cursor: pointer;
   }
 
-  & :disabled {
+  button:disabled {
     background-color: ${theme.color.lightgray};
     cursor: not-allowed;
   }
+`;
+
+export const errorMessageStyle = css`
+  color: red;
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+`;
+
+export const inputWrapperStyle = css`
+  position: relative;
+
+  input {
+    padding-right: 2.5rem;
+  }
+`;
+
+export const iconStyle = css`
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #dedede;
+  background-color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+  z-index: 1;
 `;

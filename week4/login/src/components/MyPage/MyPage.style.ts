@@ -6,19 +6,19 @@ export const myPageStyle = (theme: Theme) => css`
   justify-content: center;
   margin-top: 5%;
 
-  & .top {
+  .top {
     display: flex;
     justify-content: center;
     margin-bottom: 1.3rem;
   }
 
-  & .bottom {
+  .bottom {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
   }
 
-  & input {
+  input {
     width: 20rem;
     height: 2.5rem;
     background-color: ${theme.color.white};
@@ -28,7 +28,7 @@ export const myPageStyle = (theme: Theme) => css`
     font-size: 0.9rem;
   }
 
-  & button {
+  button {
     width: 20rem;
     height: 2.5rem;
     background-color: ${theme.color.button1};
@@ -40,12 +40,12 @@ export const myPageStyle = (theme: Theme) => css`
 
     &:hover {
       cursor: pointer;
-      background-color: #${theme.color.botton2};
+      background-color: #${theme.color.button2};
       color: ${theme.color.white};
     }
   }
 
-  & p {
+  p {
     font-size: 1rem;
     color: ${theme.color.detailText};
   }

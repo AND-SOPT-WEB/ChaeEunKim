@@ -5,53 +5,56 @@ import { useState } from "react";
 import SignUpName from "../../components/SignUp/SignUpName";
 import SignUpPw from "../../components/SignUp/SignUpPw";
 import SignUpHobby from "../../components/SignUp/SignUpHobby";
-import axios from 'axios';
+import axios from "axios";
 
-interface SignUpResponse{
+interface SignUpResponse {
   result: {
     no: number;
-  }
+  };
 }
 
 const Signup = () => {
   const navigate = useNavigate();
-  const [step, setStep] = useState<number>(1);
-  const [userName, setUserName] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [hobby, setHobby] = useState<string>("");
+  const [step, setStep] = useState(1);
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [hobby, setHobby] = useState("");
 
   const handleSignUp = async () => {
     try {
-      const response = await axios.post<SignUpResponse>("http://211.188.53.75:8080/user", {
-        username: userName,
-        password,
-        hobby
-      });
+      const response = await axios.post<SignUpResponse>(
+        "http://223.130.135.50:8085/user",
+        {
+          username: userName,
+          password,
+          hobby,
+        }
+      );
 
       if (response.status === 200) {
         alert(`회원가입 성공! 회원번호: ${response.data.result.no}`);
-        navigate('/');
+        navigate("/");
       }
     } catch (error) {
-      console.error(error)
-      alert('회원가입 실패! 다시 시도하세요.')
+      console.error(error);
+      alert("회원가입 실패! 다시 시도하세요.");
     }
-  }
+  };
 
   return (
     <main css={signupStyle}>
       <h2>회원가입</h2>
 
       {step === 1 && (
-        <SignUpName 
+        <SignUpName
           onNext={async () => setStep(2)}
           userName={userName}
-          setUserName={setUserName} 
+          setUserName={setUserName}
         />
       )}
 
       {step === 2 && (
-        <SignUpPw 
+        <SignUpPw
           onNext={async () => setStep(3)}
           password={password}
           setPassword={setPassword}
@@ -62,9 +65,9 @@ const Signup = () => {
         <SignUpHobby
           hobby={hobby}
           setHobby={setHobby}
-          onSubmit={handleSignUp} 
+          onSubmit={handleSignUp}
         />
-        )}
+      )}
 
       <div>
         <p>이미 회원이신가요?</p>

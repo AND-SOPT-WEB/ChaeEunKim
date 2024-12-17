@@ -10,18 +10,18 @@ export const loginStyle = (theme: Theme) =>
     margin-top: 5%;
     gap: 0.7rem;
 
-    & h2 {
+    h2 {
       color: ${theme.color.primaryText};
     }
 
-    & div {
+    div {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0.3rem;
     }
 
-    & input {
+    input {
       width: 20rem;
       height: 2.5rem;
       background-color: ${theme.color.white};
@@ -31,7 +31,7 @@ export const loginStyle = (theme: Theme) =>
       font-size: 0.9rem;
     }
 
-    & button {
+    button {
       width: 20rem;
       height: 2.5rem;
       background-color: ${theme.color.button1};
@@ -43,12 +43,12 @@ export const loginStyle = (theme: Theme) =>
 
       &:hover {
         cursor: pointer;
-        background-color: ${theme.color.botton2};
+        background-color: ${theme.color.button2};
         color: ${theme.color.white};
       }
     }
 
-    & p {
+    p {
       text-decoration: underline;
       text-decoration-color: ${theme.color.primaryText};
       color: ${theme.color.primaryText};

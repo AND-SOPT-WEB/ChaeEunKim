@@ -1,17 +1,21 @@
 /** @jsxImportSource @emotion/react */
 import { Dispatch, SetStateAction } from "react";
-import { signupStyle } from "./SignUp.style";
+import { signupStyle, errorMessageStyle } from "./SignUp.style";
 
 interface signuptype {
-  hobby: string
+  hobby: string;
   setHobby: Dispatch<SetStateAction<string>>;
   onSubmit: () => Promise<void>;
 }
 
-const SignUpHobby:React.FC<signuptype> = ({ hobby, setHobby, onSubmit }) => {
+const SignUpHobby = ({ hobby, setHobby, onSubmit }: signuptype) => {
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setHobby(e.target.value);
   };
+
+  const isHobbyTooLong = hobby.length > 8;
+  const isButtonDisabled = hobby.trim() === "" || isHobbyTooLong;
 
   return (
     <main css={signupStyle}>
@@ -23,10 +27,13 @@ const SignUpHobby:React.FC<signuptype> = ({ hobby, setHobby, onSubmit }) => {
         value={hobby}
         onChange={handleInputChange}
       />
+      {isHobbyTooLong && (
+        <span css={errorMessageStyle}>취미는 8자 이하로 입력해주세요</span>
+      )}
       <button
         type="submit"
         onClick={onSubmit}
-        disabled={hobby.trim() === ""}
+        disabled={isButtonDisabled}
       >
         회원가입
       </button>

@@ -5,7 +5,7 @@ const theme = {
 
     header: "#201e43",
     button1: "#cbdceb",
-    botton2: "#608bc1",
+    button2: "#608bc1",
     button3: "#31363f",
 
     white: "#ffffff",

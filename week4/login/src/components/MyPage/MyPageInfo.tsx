@@ -7,16 +7,16 @@ const MyPageInfo = () => {
   const [newPassword, setNewPassword] = useState("");
   const [newHobby, setNewHobby] = useState("");
 
-  const changePassword = (e: any) => {
+  const changePassword = (e: React.ChangeEvent<HTMLInputElement> ) => {
     setNewPassword(e.target.value);
   };
-  const changeHobby = (e: any) => {
+  const changeHobby = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewHobby(e.target.value);
   };
 
   const updateUserInfo = async () => {
-    const response: any = await axios.put(
-      "http://211.188.53.75:8080/user",
+    const response: React.ChangeEvent<HTMLInputElement> = await axios.put(
+      "http://223.130.135.50:8085/user",
       { password: newPassword, hobby: newHobby },
       {
         headers: {
