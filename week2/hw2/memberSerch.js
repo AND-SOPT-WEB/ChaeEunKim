@@ -37,13 +37,19 @@ function addTable(data) {
 }
 
 searchBtn.addEventListener("click", () => {
-  const searchName = document.querySelector(".name").value;
-  const searchEngName = document.querySelector(".eng_name").value.toLowerCase();
-  const searchGithub = document.querySelector(".git_id").value.toLowerCase();
+  const searchName = document.querySelector(".name").value.trim();
+  const searchEngName = document
+    .querySelector("#name_eng")
+    .value.trim()
+    .toLowerCase();
+  const searchGithub = document
+    .querySelector("#git")
+    .value.trim()
+    .toLowerCase();
   const searchGender = document.querySelector("#gender").value;
   const searchRole = document.querySelector("#role").value;
-  const searchWeek1 = document.querySelector(".week1").value;
-  const searchWeek2 = document.querySelector(".week2").value;
+  const searchWeek1 = document.querySelector("#week1").value.trim();
+  const searchWeek2 = document.querySelector("#week2").value.trim();
 
   const filteredData = getData.filter((member) => {
     if (searchName && !member.name.includes(searchName)) return false;
@@ -52,7 +58,6 @@ searchBtn.addEventListener("click", () => {
       !member.englishName.toLowerCase().includes(searchEngName)
     )
       return false;
-
     if (searchGithub && !member.github.toLowerCase().includes(searchGithub))
       return false;
     if (
@@ -63,10 +68,13 @@ searchBtn.addEventListener("click", () => {
       return false;
     if (searchRole && searchRole !== "none" && member.role !== searchRole)
       return false;
-    if (searchWeek1 && member.firstWeekGroup !== searchWeek1) return false;
-    if (searchWeek2 && member.secondWeekGroup !== searchWeek2) return false;
+    if (searchWeek1 && String(member.firstWeekGroup) !== String(searchWeek1))
+      return false;
+    if (searchWeek2 && String(member.secondWeekGroup) !== String(searchWeek2))
+      return false;
     return true;
   });
+
   tbody.innerHTML = "";
   addTable(filteredData);
 });
