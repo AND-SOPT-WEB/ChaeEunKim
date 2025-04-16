@@ -1,0 +1,247 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: rgb(220, 224, 207);
+}
+
+header {
+  width: 100%;
+  background-color: rgb(203, 210, 164);
+  padding: 20px;
+}
+
+.header-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+
+.header-nav i {
+  text-align: left;
+}
+
+.title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(89, 100, 27);
+}
+
+.profile {
+  text-align: right;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  background-color: rgb(203, 210, 164);
+  padding: 15px;
+}
+
+form > div {
+  display: flex;
+  align-items: center;
+  grid-column: span 6;
+}
+
+form > div:nth-child(3),
+form > div:nth-child(4),
+form > div:nth-child(5) {
+  grid-column: span 2;
+}
+
+form > div:nth-child(6),
+form > div:nth-child(7) {
+  grid-column: span 3;
+}
+
+form > div > label {
+  font-weight: bold;
+  white-space: nowrap;
+  background-color: rgb(233, 238, 217);
+  text-align: center;
+  padding: 20px 10px;
+  width: 130px;
+  flex-shrink: 0;
+}
+
+form > div > input,
+select {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-left: none;
+}
+
+form > div > input {
+  width: 100%;
+  padding: 22px 10px;
+}
+
+form > div > select {
+  padding: 21px 10px;
+}
+
+button {
+  grid-column: span 3;
+  padding: 10px;
+  color: white;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.reset {
+  background-color: rgb(154, 126, 111);
+}
+
+.submit {
+  background-color: rgb(84, 71, 63);
+}
+
+main form {
+  grid-area: filter;
+  background-color: rgb(203, 210, 164);
+  padding: 13px;
+}
+
+button {
+  border-width: 0;
+  border-radius: 5px;
+}
+
+.btns {
+  grid-area: btn;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 30px;
+  padding-bottom: 5px;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 0px;
+  width: 110px;
+}
+
+.delete {
+  background-color: rgb(154, 126, 111);
+  color: white;
+  font-size: 15px;
+}
+
+.add {
+  background-color: rgb(84, 71, 63);
+  color: white;
+  font-size: 15px;
+}
+
+table {
+  grid-area: table;
+  background-color: (154, 126, 111);
+}
+
+th {
+  background-color: rgb(154, 126, 111);
+  color: white;
+  padding: 15px 0;
+}
+
+tbody {
+  background-color: rgb(251, 251, 251);
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid rgb(225, 200, 185);
+}
+
+th,
+td {
+  border: 1px solid rgb(225, 200, 185);
+}
+
+td {
+  padding: 15px 0;
+}
+
+.modal {
+  position: absolute;
+  width: 30rem;
+  height: 90%;
+  padding: 10px 20px;
+  background-color: white;
+  border-radius: 10px;
+  border-color: transparent;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.modal > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal > h2 {
+  margin-top: 10px;
+}
+
+#closeModalBtn {
+  cursor: pointer;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.modal form label,
+.modal form input,
+.modal form select,
+.modal form button {
+  display: block;
+  width: 90%;
+  text-align: left;
+}
+
+.modal label {
+  font-weight: bold;
+  padding-top: 5%;
+}
+
+.modal input,
+.modal select {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.modal form button {
+  text-align: center;
+  font-size: 15px;
+  background-color: rgb(84, 71, 63);
+  color: white;
+  padding: 10px 5%;
+}
+
+.modal::backdrop {
+  background-color: rgba(72, 72, 72, 0.5);
+}
+
+a {
+  color: black;
+}
